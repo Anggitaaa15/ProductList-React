@@ -7,7 +7,7 @@ function Navbar({ cartCount, onClearCart }: NavbarProps) {
   return (
     <nav className="navbar">
       <a href="#home" className="logo">
-        SOLESPACE<span>.</span>
+        GetSneakers<span>.</span>
       </a>
 
       <div className="nav-links">

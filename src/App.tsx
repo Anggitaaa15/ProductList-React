@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProductItem from "./components/ProductItem";
 import "./App.css";
+import Footer from "./components/Footer";
 
 type Product = {
   id: number;
@@ -40,6 +41,30 @@ const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1631683475840-f2dbe46bfa3e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
+  {
+  id: 5,
+  name: "Nike Dunk Low Retro",
+  price: 1299000,
+  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+},
+{
+  id: 6,
+  name: "Adidas Forum Low",
+  price: 1199000,
+  image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+},
+{
+  id: 7,
+  name: "New Balance 574",
+  price: 1399000,
+  image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600",
+},
+{
+  id: 8,
+  name: "Puma Suede Classic",
+  price: 999000,
+  image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600",
+},
 ];
 
 function App() {
@@ -99,6 +124,8 @@ function App() {
           </div>
         </section>
       </main>
+
+      <Footer/>
     </div>
   );
 }

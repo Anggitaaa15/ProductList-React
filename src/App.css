@@ -353,6 +353,37 @@ button {
 }
 
 /* =========================
+   FOOTER
+========================= */
+.footer {
+  padding: 35px 7% 20px;
+  background-color: #f8f6f4;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 25px;
+}
+
+.footer-content p {
+  color: #777777;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  padding-top: 18px;
+  border-top: 1px solid #e8e3df;
+}
+
+.footer-bottom p {
+  color: #888888;
+  font-size: 12px;
+}
+
+/* =========================
    TABLET
 ========================= */
 @media (max-width: 900px) {
@@ -473,4 +504,18 @@ button {
     height: 31px;
     font-size: 19px;
   }
+
+  @media (max-width: 600px) {
+  .footer {
+    padding: 30px 5% 18px;
+  }
+
+  .footer-content p {
+    font-size: 12px;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+  }
+}
 }
