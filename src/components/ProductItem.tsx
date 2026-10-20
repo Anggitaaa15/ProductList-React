@@ -1,3 +1,4 @@
+import { Heart } from "lucide-react";
 
 type Product = {
   id: number;
@@ -12,18 +13,14 @@ type ProductCardProps = {
   onAddToCart: () => void;
 };
 
-function ProductCard({
-  product,
-  isAdded,
-  onAddToCart,
-}: ProductCardProps) {
+const ProductCard = ({product, isAdded, onAddToCart,}: ProductCardProps) => {
   return (
     <div className="product-card">
       <div className="product-image">
         <img src={product.image} alt={product.name} />
 
         <button className="favorite-button" type="button">
-          ♡
+          <Heart size={20} />
         </button>
       </div>
 

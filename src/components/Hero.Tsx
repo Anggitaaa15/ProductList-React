@@ -1,5 +1,4 @@
-
-function Hero() {
+const Hero = () =>  {
   return (
     <section className="hero" id="home">
       <div className="hero-content">
