@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import ProductCard from "./components/ProductItem";
+import ProductItem from "./components/ProductItem";
 import "./App.css";
 
 type Product = {
@@ -45,13 +45,32 @@ const products: Product[] = [
 function App() {
   const [cart, setCart] = useState<Product[]>([]);
 
-  const addToCart = (product: Product) => {
-    setCart((previous) => [...previous, product]);
+  const toggleCart = (product: Product) => {
+    setCart((previous) => {
+      const isAdded = previous.some(
+        (item) => item.id === product.id
+      );
+
+      if (isAdded) {
+        return previous.filter(
+          (item) => item.id !== product.id
+        );
+      }
+
+      return [...previous, product];
+    });
+  };
+
+  const clearCart = () => {
+    setCart([]);
   };
 
   return (
     <div className="app">
-      <Navbar cartCount={cart.length} />
+      <Navbar
+        cartCount={cart.length}
+        onClearCart={clearCart}
+      />
 
       <main>
         <Hero />
@@ -71,8 +90,10 @@ function App() {
               <ProductItem
                 key={product.id}
                 product={product}
-                isAdded={cart.some((item) => item.id === product.id)}
-                onAddToCart={() => addToCart(product)}
+                isAdded={cart.some(
+                  (item) => item.id === product.id
+                )}
+                onAddToCart={() => toggleCart(product)}
               />
             ))}
           </div>

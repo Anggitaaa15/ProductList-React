@@ -10,14 +10,12 @@ type ProductCardProps = {
   product: Product;
   isAdded: boolean;
   onAddToCart: () => void;
-  onRemoveFromCart: () => void;
 };
 
 function ProductCard({
   product,
   isAdded,
   onAddToCart,
-  onRemoveFromCart,
 }: ProductCardProps) {
   return (
     <div className="product-card">
@@ -40,22 +38,16 @@ function ProductCard({
           <button
             className={isAdded ? "added-button" : "add-button"}
             type="button"
-            onClick={isAdded ? onRemoveFromCart : onAddToCart}
-            aria-label={isAdded ? "Hapus dari keranjang" : "Tambah ke keranjang"}
+            onClick={onAddToCart}
+            aria-label={
+              isAdded
+                ? "Hapus dari keranjang"
+                : "Tambah ke keranjang"
+            }
           >
             {isAdded ? "✓" : "+"}
           </button>
         </div>
-
-        {isAdded && (
-          <button
-            className="remove-product-button"
-            type="button"
-            onClick={onRemoveFromCart}
-          >
-            Batal tambah
-          </button>
-        )}
       </div>
     </div>
   );
