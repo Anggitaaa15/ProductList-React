@@ -1,3 +1,4 @@
+
 type Product = {
   id: number;
   name: string;
@@ -9,16 +10,21 @@ type ProductCardProps = {
   product: Product;
   isAdded: boolean;
   onAddToCart: () => void;
+  onRemoveFromCart: () => void;
 };
 
-function ProductCard({product, isAdded, onAddToCart}: ProductCardProps) {
-
+function ProductCard({
+  product,
+  isAdded,
+  onAddToCart,
+  onRemoveFromCart,
+}: ProductCardProps) {
   return (
     <div className="product-card">
       <div className="product-image">
         <img src={product.image} alt={product.name} />
 
-        <button className="favorite-button">
+        <button className="favorite-button" type="button">
           ♡
         </button>
       </div>
@@ -33,12 +39,23 @@ function ProductCard({product, isAdded, onAddToCart}: ProductCardProps) {
 
           <button
             className={isAdded ? "added-button" : "add-button"}
-            onClick={onAddToCart}
-            disabled={isAdded}
+            type="button"
+            onClick={isAdded ? onRemoveFromCart : onAddToCart}
+            aria-label={isAdded ? "Hapus dari keranjang" : "Tambah ke keranjang"}
           >
             {isAdded ? "✓" : "+"}
           </button>
         </div>
+
+        {isAdded && (
+          <button
+            className="remove-product-button"
+            type="button"
+            onClick={onRemoveFromCart}
+          >
+            Batal tambah
+          </button>
+        )}
       </div>
     </div>
   );

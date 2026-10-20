@@ -68,7 +68,7 @@ function App() {
 
           <div className="product-grid">
             {products.map((product) => (
-              <ProductCard
+              <ProductItem
                 key={product.id}
                 product={product}
                 isAdded={cart.some((item) => item.id === product.id)}
